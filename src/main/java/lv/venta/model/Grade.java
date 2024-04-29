@@ -40,4 +40,5 @@ public class Grade {
 	@ManyToOne
 	@JoinColumn(name = "Ids")
 	private Student student;
+	//TODO uztaisit konstruktoru
 }

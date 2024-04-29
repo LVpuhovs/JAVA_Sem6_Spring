@@ -47,5 +47,7 @@ public class Student {
 	@OneToMany(mappedBy = "student")
 	@ToString.Exclude
 	private Collection<Grade> grade;
+	
+	//TODO uztaisit konstruktoru
 
 }
