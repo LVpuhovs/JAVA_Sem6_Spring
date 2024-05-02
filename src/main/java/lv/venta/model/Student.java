@@ -50,4 +50,8 @@ public class Student {
 	
 	//TODO uztaisit konstruktoru
 
+	public Student(String name, String surname) {
+		setName(name);
+		setSurname(surname);
+	}
 }

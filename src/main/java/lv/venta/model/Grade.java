@@ -41,4 +41,10 @@ public class Grade {
 	@JoinColumn(name = "Ids")
 	private Student student;
 	//TODO uztaisit konstruktoru
+	
+	public Grade(Course course, Student student, int grvalue) {
+		setCourse(course);
+		setStudent(student);
+		setGrvalue(grvalue);
+	}
 }
