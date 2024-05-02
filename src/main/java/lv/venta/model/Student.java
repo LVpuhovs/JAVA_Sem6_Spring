@@ -48,7 +48,7 @@ public class Student {
 	@ToString.Exclude
 	private Collection<Grade> grade;
 	
-	//TODO uztaisit konstruktoru
+	
 
 	public Student(String name, String surname) {
 		setName(name);
