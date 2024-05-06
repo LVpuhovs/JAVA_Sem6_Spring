@@ -11,7 +11,7 @@ public interface IGradeRepo extends CrudRepository<Grade, Long>{
 
 	ArrayList<Grade> findByStudentIds(long id);
 	
-	@Query(nativeQuery = true, value = "SELECT AVG(GRVALUE) FROM GRADE_TABLE WHRE IDC=?1")
+	@Query(nativeQuery = true, value = "SELECT AVG(grvalue) FROM grade_table WHERE idc=?1")
 	float CalculateAVGForCourse(long id);
 	
 	

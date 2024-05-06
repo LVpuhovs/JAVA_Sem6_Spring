@@ -47,9 +47,12 @@ public class Seminar6Spring1Application {
 						
 						Grade gr1 = new Grade(c1, s1, 7);
 						Grade gr2 = new Grade(c2, s2, 9);
+						Grade gr3 = new Grade(c1, s1, 3);
+						Grade gr4 = new Grade(c2, s2, 6);
 						gradeRepo.save(gr1);
 						gradeRepo.save(gr2);
-						
+						gradeRepo.save(gr3);
+						gradeRepo.save(gr4);
 					}
 				};
 		

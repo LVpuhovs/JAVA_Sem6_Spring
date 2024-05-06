@@ -39,10 +39,12 @@ public class GradeService implements IGradeFilterService{
 	@Override
 	public float calculateAVGGradeInCourseId(long id) throws Exception {
 		// TODO Auto-generated method stub
-		if(id <= 0 ) throw new Exception("id nav");
-		
-		if(!courseRepo.existsById(id)) throw new Exception("No course with id " + id);
-		
+		if(id <= 0)
+			throw new Exception("Id should be positive");
+
+		if(!courseRepo.existsById(id))
+			throw new Exception("There is no course with this id (" + id + ")");
+
 		float result = gradeRepo.CalculateAVGForCourse(id);
 		
 		
