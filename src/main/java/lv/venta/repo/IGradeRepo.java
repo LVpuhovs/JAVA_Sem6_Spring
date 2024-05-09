@@ -9,7 +9,7 @@ import lv.venta.model.Grade;
 
 public interface IGradeRepo extends CrudRepository<Grade, Long>{
 
-	ArrayList<Grade> findByStudentIds(long id);
+	ArrayList<Grade> findByStudentIdpe(long id);
 	
 	@Query(nativeQuery = true, value = "SELECT AVG(grvalue) FROM grade_table WHERE idc=?1")
 	float CalculateAVGForCourse(long id);

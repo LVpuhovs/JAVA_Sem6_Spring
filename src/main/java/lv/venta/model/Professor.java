@@ -25,12 +25,6 @@ import lombok.ToString;
 @Entity
 public class Professor extends Person{
 	
-	@Setter(value = AccessLevel.NONE)
-	@Column(name = "idp")
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idp;
-	
 	@NotNull
 	@Column(name = "Degree")
 	private Degree degree;
