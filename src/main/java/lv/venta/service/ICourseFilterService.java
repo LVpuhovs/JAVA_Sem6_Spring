@@ -8,7 +8,7 @@ public interface ICourseFilterService {
 	
 	public abstract ArrayList<Course> selectCoursesByStudentId(long id) throws Exception;
 	
-	public abstract ArrayList<Course> selectCoursesByProfessorId(long id) throws Exception;
+	public abstract ArrayList<Course> selectCoursesByProfessorsIdp(long id) throws Exception;
 	
 	public abstract ArrayList<Course> selectCoursesByCp(int cp) throws Exception;
 

@@ -32,7 +32,7 @@ public class CourseFilterController {
 	@GetMapping("/professor") //localhost:8080/course/filter/professor?id=2
 	public String getCourseFilterProfessorById(@RequestParam("id") int id, Model model) {
 		try {
-			model.addAttribute("myobj", courseService.selectCoursesByProfessorId(id));
+			model.addAttribute("myobj", courseService.selectCoursesByProfessorsIdp(id));
 			model.addAttribute("title", "Courses by Professor id");
 			return "show-all-course-page";
 		} catch (Exception e) {

@@ -30,20 +30,44 @@ public class Seminar6Spring1Application {
 					@Override
 					public void run(String... args) throws Exception {
 						// TODO Auto-generated method stub
-						Professor p1 = new Professor("Janis", "Berzins", Degree.bsc);
-						Professor p2 = new Professor("Karlis", "Lielais", Degree.phd);
-						profRepo.save(p1);
-						profRepo.save(p2);
+						Professor pr1 = new Professor("Marcis", "Naktins", Degree.mg);
+						Professor pr2 = new Professor("Karina", "Skirmante", Degree.mg);
+						Professor pr3 = new Professor("Arturs", "Orbidans", Degree.mg);
+						profRepo.save(pr1);
+						profRepo.save(pr2);
+						profRepo.save(pr3);
 						
 						Student s1 = new Student("Zigis", "Brivais");
 						Student s2 = new Student("Muris", "Buncis");
 						studRepo.save(s1);
 						studRepo.save(s2);
 						
-						Course c1 = new Course("JAVA", 4, p1);
-						Course c2 = new Course("Math", 2, p2);
+						Course c1 = new Course("Programesana timekli JAVA", 4, pr2);
+						Course c2 = new Course("Operetajsistemas", 2, pr1, pr3);
+						Course c3 = new Course("Datu strukturas", 2, pr2);
 						courseRepo.save(c1);
 						courseRepo.save(c2);
+						courseRepo.save(c3);
+						
+						pr2.addCourse(c1);//Karinai piesaistām JAVA
+						pr2.addCourse(c3);//Karinai piesaistām DataSTR
+						profRepo.save(pr2);
+						
+						pr1.addCourse(c2);//Naktiņam piesaistām Opersis
+						profRepo.save(pr1);
+						
+						pr3.addCourse(c2);//Orbidānam piesaistam Opersis
+						profRepo.save(pr3);
+						
+						c1.addProfessor(pr2);
+						c2.addProfessor(pr1);
+						c2.addProfessor(pr3);
+						c3.addProfessor(pr2);
+						courseRepo.save(c1);
+						courseRepo.save(c2);
+						courseRepo.save(c3);
+						
+				
 						
 						Grade gr1 = new Grade(c1, s1, 7);
 						Grade gr2 = new Grade(c2, s2, 9);

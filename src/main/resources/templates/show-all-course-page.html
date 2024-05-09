@@ -2,13 +2,21 @@
 
 <body>
 	<p th:text = "${title}"></p>
-	<table>
+	<table border="1">
 		<tr th:each="tempC: ${myobj}">
 			<td th:text = "${tempC.getIdc()}"></td>
 			<td th:text = "${tempC.getTitle()}"></td>
 			<td th:text = "${tempC.getCp()}"></td>
-			<td th:text = "${tempC.getProfessor().getName()}"></td>
-			<td th:text = "${tempC.getProfessor().getSurname()}"></td>
+			
+			
+			<td>
+			    <ul>
+			      <li th:each="tempP : ${tempC.getProfessors()}">
+			        <span th:text="${tempP.getName()}">Name</span>
+					<span th:text="${tempP.getSurname()}">Name</span>
+			      </li>
+			    </ul>
+			</td>
 		</tr>	
 	</table>
 </body>

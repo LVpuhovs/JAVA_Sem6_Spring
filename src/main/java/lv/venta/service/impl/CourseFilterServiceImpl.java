@@ -37,13 +37,13 @@ public class CourseFilterServiceImpl implements ICourseFilterService{
 	}
 
 	@Override
-	public ArrayList<Course> selectCoursesByProfessorId(long id) throws Exception {
+	public ArrayList<Course> selectCoursesByProfessorsIdp(long id) throws Exception {
 		// TODO Auto-generated method stub
 		if(id <= 0 ) throw new Exception("id nav");
 		
 		if(!professorRepo.existsById(id)) throw new Exception("No professor with id " + id);
 		
-		ArrayList<Course> result = courseRepo.findByProfessorIdp(id);
+		ArrayList<Course> result = courseRepo.findByProfessorsIdp(id);
 		
 		if(result.isEmpty()) throw new Exception("There is no course linked to professor");
 		return result;

@@ -51,10 +51,10 @@ public class Course {
 	private int cp;
 	
 	@ManyToMany
-	@JoinTable(name = "CourseProfessorTable", joinColumns = @JoinColumn(name = "Idc"), inverseJoinColumns = @JoinColumn(name = "Idp"))
+	@JoinTable(name = "CourseProfessorTable", joinColumns = @JoinColumn(name = "idc"), inverseJoinColumns = @JoinColumn(name = "idp"))
 	private Collection<Professor> professors = new ArrayList<Professor>();
 	
-	@OneToMany(mappedBy = "courses")
+	@OneToMany(mappedBy = "course")
 	@ToString.Exclude
 	private Collection<Grade> grade;
 	
@@ -63,6 +63,8 @@ public class Course {
 		setCp(cp);
 		for(Professor tempP: professors)
 			addProfessor(tempP);
+		
+		
 	}
 	
 	public void addProfessor(Professor professor) {
