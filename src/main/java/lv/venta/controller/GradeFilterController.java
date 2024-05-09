@@ -14,7 +14,7 @@ public class GradeFilterController {
     @Autowired
     private IGradeFilterService gradeService;
 
-    @GetMapping("/student")
+    @GetMapping("/student") //localhost:8080/course/filter/student?id=2
     public String getGradesStudent(@RequestParam("id") int id, Model model){
         try {
             model.addAttribute("myobj", gradeService.selectGradesByStudentId(id));

@@ -1,5 +1,6 @@
 package lv.venta.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import jakarta.persistence.Column;
@@ -8,6 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -47,17 +50,30 @@ public class Course {
 	@Column(name = "Cp")
 	private int cp;
 	
-	@OneToOne
-	@JoinColumn(name = "Idp")
-	private Professor professor;
+	@ManyToMany
+	@JoinTable(name = "CourseProfessorTable", joinColumns = @JoinColumn(name = "Idc"), inverseJoinColumns = @JoinColumn(name = "Idp"))
+	private Collection<Professor> professors = new ArrayList<Professor>();
 	
-	@OneToMany(mappedBy = "course")
+	@OneToMany(mappedBy = "courses")
 	@ToString.Exclude
 	private Collection<Grade> grade;
 	
-	public Course(String title, int cp, Professor professor) {
+	public Course(String title, int cp, Professor ... professor) {
 		setTitle(title);
 		setCp(cp);
-		setProfessor(professor);
+		for(Professor tempP: professors)
+			addProfessor(tempP);
+	}
+	
+	public void addProfessor(Professor professor) {
+		if(!professors.contains(professor)){
+			professors.add(professor);
+		}
+	}
+	
+	public void deleteProfessor(Professor professor) {
+		if(professors.contains(professor)){
+			professors.remove(professor);
+		}
 	}
 }
